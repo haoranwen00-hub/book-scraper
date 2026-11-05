@@ -13,6 +13,8 @@ stock levels, categories, and descriptions, delivered as a formatted spreadsheet
 - **Detail-page scraping** (`--details`): category, UPC, exact stock count, full description
 - **Concurrent requests** with a thread pool: all 1,000 detail pages in about 75 seconds
 - **Reliable**: automatic retries with back-off on network errors and 429/5xx responses, request timeouts, and a delay between list pages
+- **Fault-tolerant**: a failed page or a malformed product is logged and skipped, so one error never loses the data already collected
+- **Safe Excel output**: control characters are removed and formula-like text (`=`, `+`, `-`, `@`) is escaped, which prevents CSV/Excel formula injection
 - **Data cleaning**: prices parsed to numbers, star ratings converted to 1–5, stock text converted to integers
 - **Formatted Excel output**:
   - `Books` sheet: styled header, frozen top row, auto-filter, currency format
